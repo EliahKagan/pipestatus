@@ -18,7 +18,7 @@ __pipestatus() {
     # If any command in the pipeline failed, show all commands' statuses.
     if ! __all_zero "${previous[@]}"; then
         local IFS='|'
-        printf '\e[31m[%s]\e[0m\n' "${previous[*]}"
+        printf '\[\e[31m\][%s]\[\e[0m\]\n' "${previous[*]}"
     fi
 }
 
