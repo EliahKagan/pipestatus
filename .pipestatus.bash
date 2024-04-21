@@ -1,3 +1,5 @@
+# This adds exit status(es) of the last command to the prompt.
+
 __all_zero() {
     local value
 
