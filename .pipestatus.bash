@@ -1,0 +1,29 @@
+__all_zero() {
+    local value
+
+    for value in "$@"; do
+        if ((value != 0)); then
+            return "$value"
+        fi
+    done
+
+    return 0
+}
+
+__pipestatus() {
+    local -a previous=("${PIPESTATUS[@]}")
+
+    # If any command in the pipeline failed, show all commands' statuses.
+    if ! __all_zero "${previous[@]}"; then
+        local IFS='|'
+        printf '\e[31m[%s]\e[0m\n' "${previous[*]}"
+    fi
+}
+
+case "$PS1" in
+*__pipestatus*)
+    ;;
+*)
+    PS1="$(sed 's@\\\$ $@$(__pipestatus)\\\$ @' <<<"$PS1")"
+    ;;
+esac
