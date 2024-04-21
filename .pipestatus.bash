@@ -18,7 +18,7 @@ __pipestatus() {
     # If any command in the pipeline failed, show all commands' statuses.
     if ! __all_zero "${previous[@]}"; then
         local IFS='|'
-        printf '\[\e[31m\][%s]\[\e[0m\]\n' "${previous[*]}"
+        printf '[%s]\n' "${previous[*]}"
     fi
 }
 
@@ -26,6 +26,6 @@ case "$PS1" in
 *__pipestatus*)
     ;;
 *)
-    PS1="$(sed 's@\\\$ $@$(__pipestatus)\\\$ @' <<<"$PS1")"
+    PS1="$(sed 's@\\\$ $@\\[\\e[31m\\]$(__pipestatus)\\[\\e[0m\\]\\\$ @' <<<"$PS1")"
     ;;
 esac
