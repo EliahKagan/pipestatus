@@ -19,7 +19,9 @@ array variable that it makes use of.
 ## History
 
 This was written back in 2023 but I didn't get around to publishing it widely
-until mid-2024.
+until mid-2024, when a bug (that `\[` and `\]` were not used to help the shell
+correcty compute how many columns the prompt takes up in the terminal) was
+fixed.
 
 I think the positioning and styling is inspired by the way the defualt `fish`
 prompt includes this information, but I am not sure.
