@@ -27,6 +27,6 @@ case "$PS1" in
 *__pipestatus*)
     ;;
 *)
-    PS1="$(sed 's@\\\$ $@\\[\\e[31m\\]$(__pipestatus)\\[\\e[0m\\]\\\$ @' <<<"$PS1")"
+    PS1="${PS1/%\\\$ /\\[\\e[31m\\]\$(__pipestatus)\\[\\e[0m\\]\\\$ }"
     ;;
 esac
