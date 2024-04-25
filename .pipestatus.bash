@@ -1,4 +1,3 @@
-# shellcheck shell=bash
 # SPDX-License-Identifier: 0BSD
 # This adds exit status(es) of the last command to the prompt unless all are 0.
 
