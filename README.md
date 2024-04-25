@@ -1,4 +1,9 @@
-# pipestatus - exit status(es) of last command in Bash prompt
+# pipestatus - exit status(es) in Bash prompt
+
+This puts the exit status of the last command, or all of its exit statuses if
+it was a pipeline of multiple commands, into your Bash prompt. They are shown
+if the command reported failure (i.e., had a nonzero exit status), or if any
+command in the pipeline did.
 
 To install, put `~/.pipestatus.bash` in your home directory, and add this code
 at (or near) the end of your `~/.bashrc` file:
